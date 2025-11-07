@@ -50,7 +50,7 @@ The top-level module experiences timing synchronization problems when applying m
 │                  │
 │  ┌────────────┐  │     ┌──────────────┐     ┌─────────────┐
 │  │   State    │  │     │              │     │             │
-│  │   Matrix   │──┼────▶│ Serializer & │────▶│ XOR Engine  │────▶ Ciphertext
+│  │   Matrix   |        | Serializer & │────▶│ XOR Engine  │────▶ Ciphertext
 │  │ Generator  │  │     │ Concatenator │     │             │
 │  └────────────┘  │     └──────────────┘     └─────────────┘
 │                  │            ▲                     ▲
