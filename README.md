@@ -8,10 +8,11 @@ This project implements the ChaCha20 stream cipher—a modern, high-performance 
 
 ### Design Goals
 
-- **Performance**: Achieve >10x speedup over software implementation through hardware parallelization
-- **Learning Objective**: Complete exposure to professional ASIC design flow (RTL → Synthesis → Physical Design → Signoff)
+- **Performance**: Achieve significant speedup over software implementation
+- **Learning Objective**: Complete exposure to professional ASIC design flow, Mastery of SystemVerilog, learning of challenges and methodologies in designing and verifying crytographic systems in digital hardware
 - **Standards Compliance**: Full adherence to ChaCha20 specification (RFC 8439)
 - **Scalability**: Modular architecture allowing future integration of Poly1305 authenticator for complete AEAD capability
+- **Publishing**: To investigate and publish a white paper on the efficacy and performance of Chacha20 & Poly1305 AEAD ASIC vs that of the standardly implemented software versions, chacha20 would be writen in C to give near maximum limit for software performance.
 
 ## Project Status
 
@@ -28,11 +29,9 @@ This project implements the ChaCha20 stream cipher—a modern, high-performance 
 - XOR engine for plaintext encryption
 - Modular, parameterized design almost suitable for synthesis
 
-**RTL Verification (95% Complete)**
+**RTL Verification (Mostly complete)**
 - Comprehensive unit testing for all major components
-- Reset latching synchronization issue requiring resolution
-- Final integration testing needed between Block Function and Concatenation/Serialization pipelines
-- Performance validation showing >10x theoretical speedup vs. software
+- Performance validation showing >10x theoretical speedup vs. software (python implementation)
 
 **Performance Achievement**: The RTL design achieves greater than 10x performance improvement compared to the Python software implementation through hardware parallelization and pipelined datapath architecture.
 
@@ -111,6 +110,7 @@ The top-level module experiences timing synchronization problems when applying m
 
 **Remaining Verification Challenge**
 - Diagonal quarter-round timing synchronization requires resolution of reset-to-input latching issue
+- Block function (ChaCha20 core) & Serialisation/concatenation pipelines need to be verified
 
 ### Notable Verification Milestones
 
@@ -151,9 +151,6 @@ Successfully verified correct behavior across extreme input conditions:
 ## Design Methodology
 
 This project follows industry-standard ASIC design practices
-
-
-
 
 ## Future Plans
 
